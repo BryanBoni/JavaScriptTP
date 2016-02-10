@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id = "div1"></div>
+        <!--
+        <input type = "text" id = "field1"/>
+        <input type = "text" id = "field2"/>
+        <button type ="submit" id = "submitBtn" value = "Submit">Submit</button>
+        -->
+        <button>A</button>
+        <button>B</button>
+        <button>C</button>
+        <p id="msg"></p>
+        
+        <a href = "www.google.com" id = "link">link</a>
+        <script lang = "javascript">
+            //window.addEventListener("load",function (){
+    
+            /* document.body.onload = addElement;
+
+             function addElement (){    
+
+                 //create a new div element
+                 //and give it some content
+
+                 var newDiv = document.createElement("div");
+
+                 var newContent = document.createTextNode("Hi there");
+
+                 newDiv.appendChild(newContent); // add the text
+
+                 // add the newly created element and its content into the DOM
+                 var currentDiv = document.getElementById("div1");
+
+                 document.body.insertBefore(newDiv, currentDiv);
+             };
+          */
+             // NB: le body existe dès le départ
+         document.getElementsByTagName("body")[0]
+           .addEventListener("click", function(evt) {
+             var msg = document.getElementById("msg");
+             if (evt.target.tagName === "BUTTON") {
+                 if(evt.target.textContent === "B"){
+                     msg.textContent = "Vous avez cliqué sur ma bible ";
+                 }else {
+                 msg.textContent = "Vous avez cliqué sur " +
+                    evt.target.textContent;
+                    }
+             } else {
+                 console.log(evt.target);
+                 msg.textContent = "Vous avez raté les boutons...";
+             }
+         });
+
+         //});
+        </script>
+    </body>
+</html>
