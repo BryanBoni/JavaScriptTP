@@ -1,0 +1,23 @@
+#clockDiv{
+    font-size: 30px;
+    border : white 2px solid;
+    width: 300px;
+}
+body{
+    background-color: #660000;
+    color : white;
+    text-align: center;
+}
+
+#addBtn{
+    border: 5px  solid white;
+    text-align: center; 
+    border-radius: 2px;
+    color: #333333;
+}
+
+#addBtn:active {
+    background-color: #424242;
+    border-color: #424242;
+    color: white;
+}
