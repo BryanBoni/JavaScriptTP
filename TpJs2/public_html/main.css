@@ -21,3 +21,29 @@ body{
     border-color: #424242;
     color: white;
 }
+
+.suppBtn{
+    border: 5px  solid white;
+    text-align: center; 
+    border-radius: 2px;
+    color: #333333;
+}
+
+.suppBtn:active {
+    background-color: #424242;
+    border-color: #424242;
+    color: white;
+}
+
+.alarmH{
+    width: 50px;
+}
+
+.alarmM{
+    width: 50px;
+}
+
+#btnGroup{
+    border: 2px white solid;
+    
+}

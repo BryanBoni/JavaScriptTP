@@ -1,5 +1,6 @@
 window.addEventListener("load",function (){
-    startTime();    
+    startTime(); 
+    var i = 0;
     document.getElementById("addBtn").addEventListener('click', addAlarm);
     
     function addAlarm(){
@@ -9,7 +10,22 @@ window.addEventListener("load",function (){
         var sounds; // Object
         
         
+        document.getElementById("btnGroup").innerHTML += 
+                "<br /><input type = \"checkbox\" name = \"alarmChkNo"+ i +"\" class = \"alarmChk\" /> " 
+                + "<input type = \"number\" name = \"alarmHNo"+ i +"\" class = \"alarmH\"/> " 
+                + "<input type = \"number\" name = \"alarmMNo"+ i +"\" class = \"alarmM\"/> " 
+                + "<input type = \"text\" name = \"alarmNameNo"+ i +"\" class = \"alarmName\"/> " 
+                + "<input type = \"\" name = \"\" class = \"\"/> " 
+                + "<button type = \"button\" class = \"suppBtn\" name = \"suppBtn\">[-]</button> "
+                + "<br />";
+        return i++;
+    document.getElementById("suppBtn").addEventListener('click', suppAlarm);    
     }
+    
+    function suppAlarm(){
+        
+    }
+    
     
     function startTime() {
         var today = new Date();
@@ -17,8 +33,8 @@ window.addEventListener("load",function (){
         var minutes = today.getMinutes();
         var seconds = today.getSeconds();
         // add a zero in front of numbers<10
-        m = checkTime(m);
-        s = checkTime(s);
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds);
         document.getElementById("clockDiv").innerHTML = hours + ":" + minutes + ":" + seconds;
         var t = setTimeout(function(){ startTime() }, 500);
     }
