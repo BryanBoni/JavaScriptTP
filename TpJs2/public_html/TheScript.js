@@ -12,8 +12,8 @@ window.addEventListener("load",function (){
         
         document.getElementById("btnGroup").innerHTML += 
                 "<br /><input type = \"checkbox\" name = \"alarmChkNo"+ i +"\" class = \"alarmChk\" /> " 
-                + "<input type = \"number\" name = \"alarmHNo"+ i +"\" class = \"alarmH\"/> " 
-                + "<input type = \"number\" name = \"alarmMNo"+ i +"\" class = \"alarmM\"/> " 
+                + "<input type = \"number\" name = \"alarmHNo"+ i +"\" class = \"alarmH\" min = \"0\"  max = \"23\"/> " 
+                + "<input type = \"number\" name = \"alarmMNo"+ i +"\" class = \"alarmM\" min = \"0\"  max = \"59\"/> " 
                 + "<input type = \"text\" name = \"alarmNameNo"+ i +"\" class = \"alarmName\"/> " 
                 + "<input type = \"\" name = \"\" class = \"\"/> " 
                 + "<button type = \"button\" class = \"suppBtn\" name = \"suppBtn\">[-]</button> "
