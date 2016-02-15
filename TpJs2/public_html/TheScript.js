@@ -17,7 +17,7 @@ window.addEventListener("load",function (){
                 + "<input type = \"text\" name = \"alarmNameNo"+ i +"\" class = \"alarmName\"/> " 
                 + "<input type = \"\" name = \"\" class = \"\"/> " 
                 + "<button type = \"button\" class = \"suppBtn\" name = \"suppBtn\">[-]</button> "
-                + "<br />";
+                + "<br /><br />";
         return i++;
     document.getElementById("suppBtn").addEventListener('click', suppAlarm);    
     }
