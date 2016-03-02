@@ -1,5 +1,14 @@
 body{
     text-align: center;
+    background-image: url("http://1.bp.blogspot.com/-phn7C70xf30/UuKsyOZAyKI/AAAAAAAAAps/Vs3YQK8qNyU/s1600/WoodPlanks.png");
+}
+
+body h1{
+    background-color: white;
+    display: inline-block;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 #quest{
     background-color: #ff9933;
@@ -12,7 +21,7 @@ body{
     color: black;
 }
 .choices{
-    
+    background-color: white;
     display: inline-block;
     padding: 5px;
     margin-right: 5px;
