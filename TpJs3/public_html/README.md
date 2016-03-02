@@ -1,4 +1,4 @@
-# JavaScriptTP
+# JavaScript TP3 "AjaxCall"
 
 This folder contain the TP3 given and made in class,
 
