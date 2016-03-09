@@ -1,5 +1,5 @@
 # JavaScriptTP ![alt text][logo]  
-[logo]: http://whiteprompt.com/wp-content/uploads/2015/09/logo-immutable.png
+[logo]: http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/082014/js1_0.png?itok=BqOjTfHU
 This folder contain all TP given and made in class,
 
 With Bryan Boni and Drevet Yoan G2S4,
