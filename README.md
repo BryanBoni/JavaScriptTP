@@ -1,4 +1,5 @@
-# JavaScriptTP
+# JavaScriptTP ![alt text][logo]  
+[logo]: http://whiteprompt.com/wp-content/uploads/2015/09/logo-immutable.png
 This folder contain all TP given and made in class,
 
 With Bryan Boni and Drevet Yoan G2S4,
