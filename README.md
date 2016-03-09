@@ -1,7 +1,7 @@
 # JavaScriptTP   
 This folder contain all TP given and made in class,
 
-With Bryan Boni and Drevet Yoan G2S4,
+With Bryan Boni and Drevet Yoann G2S4,
 
 link to the gh-pages : http://bryanboni.github.io/JavaScriptTP/
 
