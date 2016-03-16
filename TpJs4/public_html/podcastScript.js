@@ -60,6 +60,20 @@ window.addEventListener("load", function () {
         elementClock.appendChild(podcastListenContainer);
 
         arrayPodcast.push(podcastListenContainer);
+        
+        function openFeed(url) {
+            xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.onload = function() {
+                alert("Received: " + xhr.responseXml);
+            };
+            xhr.onerror = function() {
+                alert("Error: is your browser compatible with CORS?");
+            }
+            xhr.send();
+        }
+        openFeed("http://radiofrance-podcast.net/podcast09/rss_15449.xml");
 
-    }
+
+        }
 });
