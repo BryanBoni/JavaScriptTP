@@ -8,21 +8,37 @@ window.addEventListener("load", function () {
 
     function initDisplay() {
         //elementClock.appendChild(elementPodcastButton);
-        elementPodcastButton.addEventListener("click", addPodcast);
+        elementPodcastButton.addEventListener("click", addAudioPodcast);
 
 
     }
 
-    function addPodcast(podcastSource) {
+    function addAudioPodcast(podcastSource) {
         var podcastListenContainer = document.createElement("div");
         var audioActive = document.createElement("audio");
         var sourceTag = document.createElement("source");
+        
+        var deleteBtn = document.createElement("button");
+        
         var brTag = document.createElement("br");
+        
+        //set up the div tag
+        podcastListenContainer.setAttribute("id","pod");
+        podcastListenContainer.innerHTML += "<h2>Title</h2>";
+        
+        //set up for the audio tag
         audioActive.setAttribute("preload", "auto");
         audioActive.setAttribute("controls", "");
+        
+        //set up for the source tag 
         sourceTag.setAttribute("src", "audio.mp3");
-
         sourceTag.setAttribute("type", "audio/mpeg");
+        
+        //set up the button tag, used to delete the current podcast
+        deleteBtn.setAttribute("type","button");
+        // Indicates a dangerous or potentially negative action 
+        deleteBtn.setAttribute("class","btn btn-danger");
+        deleteBtn.textContent = "delete"; 
 
 
         /*
@@ -37,6 +53,7 @@ window.addEventListener("load", function () {
         elementPodcast.appendChild(podcastListenContainer);
         podcastListenContainer.appendChild(audioActive);
         audioActive.appendChild(sourceTag);
+        podcastListenContainer.appendChild(deleteBtn);
         arrayPodcast.push(podcastListenContainer);
         elementPodcast.appendChild(brTag);
         
@@ -52,12 +69,12 @@ window.addEventListener("load", function () {
             xhr = new XMLHttpRequest();
             xhr.open("GET", "http://crossorigin.me/" + url, true);
             xhr.onload = function() {
-                alert("Received: " + xhr.responseXML.querySelectorAll("item enclosure")[0].getAttribute("url"));
+                console.log("Received: " + xhr.responseXML.querySelectorAll("item enclosure")[0].getAttribute("url"));
             };
             xhr.onerror = function() {
                 alert("Error: request failed :(");
             };
-            xhr.send();
+            xhr.send();//execute the request
         }
         openFeed("http://radiofrance-podcast.net/podcast09/rss_15449.xml");
 
