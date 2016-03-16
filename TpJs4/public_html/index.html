@@ -3,22 +3,45 @@
     <head>
         <title>TpJs4: Podcast</title>
         <meta charset="UTF-8">
+        <link rel = "stylesheet" href="main.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css"/>
-        <link rel="stylesheet" type="text/css" herf="yolo.css" />
-        
+
         <!-- jQuery library -->
-        <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
-        <script src = "bootstrap/js/bootstrap.js"></script>
-        <script src = "bootstrap/npm.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
     </head>
-    <body>
-        <h1> Podcast Reader </h1>
-        <label id = "feedUrl" for = "feedUrl">Podcast URL: </label>
-        <input id = "feedUrl" type = "text" name = "feedUrl" value = "add here the of the podcast you want to retrie" />
-        <input id = "okBtn" type = "submit" name = "okBtn" value = "OK" /><br />
-        <div id = "podcastContainer"></div>
+    <body id="main">
+        <div class = "container-fluid">
+            <header class="row">
+                <h1> Podcast Reader </h1>
+            </header>
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 input-group">
+                    <span class="input-group-addon" id="basic-addon1">Podcast URL:</span>
+                    <input type = "text" id = "textInput" class = "form-control" placeholder = "add here the url of the podcast you want to retrive" aria-describedby="basic-addon1">    
+                    <span class="input-group-btn">
+                        <button  id = "okBtn" class="btn btn-primary" name = "okBtn" type="button">OK</button>
+                    </span>
+                </div>
+            </div>
+
+            <br />
+
+            <div class = "row">
+                <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8" >
+                    <div class="panel panel-primary" >
+                        <div class="panel-heading" >
+                            <h3 class="panel-title">Podcast List</h3>
+                        </div>
+                        <div class="panel-body" id = "podcastContainer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
