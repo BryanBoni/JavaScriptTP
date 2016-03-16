@@ -1,6 +1,6 @@
 window.addEventListener("load", function () {
 
-    var elementClock = document.getElementById("podcastContainer");
+    var elementPodcast = document.getElementById("podcastContainer");
     var elementPodcastButton = document.getElementById("okBtn"); // creating button tag
     var arrayPodcast = new Array();
 
@@ -17,15 +17,13 @@ window.addEventListener("load", function () {
         var podcastListenContainer = document.createElement("div");
         var audioActive = document.createElement("audio");
         var sourceTag = document.createElement("source");
+        var brTag = document.createElement("br");
         audioActive.setAttribute("preload", "auto");
         audioActive.setAttribute("controls", "");
         sourceTag.setAttribute("src", "audio.mp3");
 
-        /*sourceTag.setAttribute("type", "audio/mpeg");*/
+        sourceTag.setAttribute("type", "audio/mpeg");
 
-        //var selectHour = document.createElement("select");
-        //var selectMinute = document.createElement("select");
-        //audioActive.setAttribute("type", "checkbox");
 
         /*
          WHAT IT SHOULD BE : 
@@ -36,33 +34,20 @@ window.addEventListener("load", function () {
          Your browser does not support the audio element.
          </audio> 
          */
-
-
-        /*
-         for (i = 0; i < 24; i++) {
-         var opt = document.createElement("option");
-         opt.value = i;
-         opt.innerHTML = i;
-         selectHour.appendChild(opt);
-         }
-         
-         for (i = 0; i < 60; i++) {
-         var opt = document.createElement("option");
-         opt.value = i;
-         opt.innerHTML = i;
-         selectMinute.appendChild(opt);
-         }
-         */
-
+        elementPodcast.appendChild(podcastListenContainer);
         podcastListenContainer.appendChild(audioActive);
-        //podcastListenContainer.appendChild(selectHour);
-        //podcastListenContainer.appendChild(selectMinute);
-        elementClock.appendChild(podcastListenContainer);
-
+        audioActive.appendChild(sourceTag);
         arrayPodcast.push(podcastListenContainer);
+        elementPodcast.appendChild(brTag);
         
-        }
         
+        $( function()
+	{
+		$( audioActive ).audioPlayer();
+	});
+        
+    }
+     
         function openFeed(url) {
             xhr = new XMLHttpRequest();
             xhr.open("GET", "http://crossorigin.me/" + url, true);
@@ -71,7 +56,7 @@ window.addEventListener("load", function () {
             };
             xhr.onerror = function() {
                 alert("Error: request failed :(");
-            }
+            };
             xhr.send();
         }
         openFeed("http://radiofrance-podcast.net/podcast09/rss_15449.xml");
