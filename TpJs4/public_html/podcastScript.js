@@ -61,19 +61,19 @@ window.addEventListener("load", function () {
 
         arrayPodcast.push(podcastListenContainer);
         
+        }
+        
         function openFeed(url) {
             xhr = new XMLHttpRequest();
-            xhr.open("GET", url, true);
+            xhr.open("GET", "http://crossorigin.me/" + url, true);
             xhr.onload = function() {
-                alert("Received: " + xhr.responseXml);
+                alert("Received: " + xhr.responseXML.querySelectorAll("item enclosure")[0].getAttribute("url"));
             };
             xhr.onerror = function() {
-                alert("Error: is your browser compatible with CORS?");
+                alert("Error: request failed :(");
             }
             xhr.send();
         }
         openFeed("http://radiofrance-podcast.net/podcast09/rss_15449.xml");
 
-
-        }
 });
