@@ -9,15 +9,20 @@ window.addEventListener("load", function () {
     function initDisplay() {
         //elementClock.appendChild(elementPodcastButton);
         elementPodcastButton.addEventListener("click", addPodcast);
+
+
     }
 
     function addPodcast(podcastSource) {
         var podcastListenContainer = document.createElement("div");
         var audioActive = document.createElement("audio");
         var sourceTag = document.createElement("source");
+        audioActive.setAttribute("preload", "auto");
         audioActive.setAttribute("controls", "");
-        sourceTag.setAttribute("src", "");
-        sourceTag.setAttribute("type", "audio/mpeg");
+        sourceTag.setAttribute("src", "audio.mp3");
+
+        /*sourceTag.setAttribute("type", "audio/mpeg");*/
+
         //var selectHour = document.createElement("select");
         //var selectMinute = document.createElement("select");
         //audioActive.setAttribute("type", "checkbox");
@@ -26,7 +31,7 @@ window.addEventListener("load", function () {
          WHAT IT SHOULD BE : 
          <audio controls>
          <source src="horse.ogg" type="audio/ogg">
-        or
+         or
          <source src="horse.mp3" type="audio/mpeg">
          Your browser does not support the audio element.
          </audio> 
@@ -53,6 +58,8 @@ window.addEventListener("load", function () {
         //podcastListenContainer.appendChild(selectHour);
         //podcastListenContainer.appendChild(selectMinute);
         elementClock.appendChild(podcastListenContainer);
+
         arrayPodcast.push(podcastListenContainer);
+
     }
 });
