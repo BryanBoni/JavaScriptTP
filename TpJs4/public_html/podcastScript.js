@@ -2,8 +2,10 @@ window.addEventListener("load", function () {
     //the Main fucntion
     podNum = 0;
     var elementPodcast = document.getElementById("podcastContainer");
-    var elementPodcastButton = document.getElementById("okBtn"); // creating button tag
     var arrayPodcast = new Array();
+
+    var elementPodcastButton = document.getElementById("okBtn"); // creating button tag
+
 
     initFunction();
 
@@ -21,7 +23,8 @@ window.addEventListener("load", function () {
          */
         podNum += 1;
         addAudioPodcast("lol", podNum, "title", "description");
-        addImagePodcast(podNum, "Dango Family", "Dango... dango... dango...");
+        addImagePodcast(podNum + 1, "Dango Family", "Dango... dango... dango...");
+        addVideoPodcast(podNum + 2, "Angel Beat", "Great feffffffffffffffffffffffffffffffffffff ffffffffffffffffffffffffffffffffzzfezrgRGEGQERGERQU9GSITUBHBYRTGNIUQERYHBGEIU9GVBUISERGJQERQSRUEIGHNETUGZERIOubgfrigbergbisersgreibgquguerdghbeurbgdrgdubhrghdrhbdurgnuhdqnrisrhgbdrhgbdigbgdrbg");
     }
 
     function addImagePodcast(num, podTitle, podDescription) {
@@ -32,23 +35,23 @@ window.addEventListener("load", function () {
         /*
          What it should be in HTML:
          <div class="thumbnail">
-            <div class = "row">
-                <div class = "col-sm-6">
-                    <img src="..." alt="...">
-                </div>
-                <div class = "col-sm-6">
-                    <div class="caption">
-                        <h2>Thumbnail label</h2>
-                        <p>...</p>
-                        <button type="button" class="btn btn-danger">Button</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        */
+         <div class = "row">
+         <div class = "col-sm-6">
+         <img src="..." alt="...">
+         </div>
+         <div class = "col-sm-6">
+         <div class="caption">
+         <h2>Thumbnail label</h2>
+         <p>...</p>
+         <button type="button" class="btn btn-danger">Button</button>
+         </div>
+         </div>
+         </div>
+         </div>
+         */
         var i = num;
         var podcastImageContainer = document.createElement("div");
-        var row = document.createElement("div");
+        
         var col1 = document.createElement("div");
         var col2 = document.createElement("div");
         var imageActive = document.createElement("img");
@@ -57,50 +60,50 @@ window.addEventListener("load", function () {
         var title = document.createElement("h2");
         var description = document.createElement("p");
         var brTag = document.createElement("br");
-        
-        
-        
+
+
+
         //set up the cols
         col1.setAttribute("class", "col-sm-6");
         col2.setAttribute("class", "col-sm-6");
-        
+
         //set up the title
-        title.textContent = podTitle; 
-        
+        title.textContent = podTitle;
+
         //set up the description
         description.textContent = podDescription;
-        
+
         //Set up for the div podcastImageContainer
         podcastImageContainer.setAttribute("class", "thumbnail row");
         podcastImageContainer.setAttribute("id", "pod");
-        
+
         //Set up for the img tag
         imageActive.setAttribute("src", "dango.png");
         imageActive.setAttribute("alt", "TITLE");
-        
+
         //Set up for the div caption
         caption.setAttribute("class", "caption");
         caption.appendChild(title);
         caption.appendChild(description);
-        
+
         //Set up for the button tag
         deleteBtn.setAttribute("type", "button");
         // Indicates a dangerous or potentially negative action 
         deleteBtn.setAttribute("class", "btn btn-danger");
         deleteBtn.textContent = "delete ";
-        
+
         elementPodcast.appendChild(podcastImageContainer);
         podcastImageContainer.appendChild(col1);
         podcastImageContainer.appendChild(col2);
-        
+
         col1.appendChild(imageActive);
         col2.appendChild(caption);
         elementPodcast.appendChild(deleteBtn);
-        
+
         arrayPodcast.push(podcastImageContainer);
-        
+
         elementPodcast.appendChild(brTag);
-        
+
         deleteBtn.addEventListener("click", function () {
             elementPodcast.removeChild(podcastImageContainer);
             elementPodcast.removeChild(deleteBtn);
@@ -109,12 +112,101 @@ window.addEventListener("load", function () {
         });
     }
 
-    function addVideoPodcast(num) {
+    function addVideoPodcast(num, podTitle, podDescription) {
         /*
          This function treat an display a Video podcast,
          retrive from an RSS flux.
          */
-        var podcastListenContainer = document.createElement("div");
+        /*
+         What it should be in HTML:
+         <div class="thumbnail">
+         <div class = "row">
+         <div class = "col-sm-6">
+         <video width="320" height="240" controls>
+         <source src="movie.mp4" type="video/mp4">
+         <source src="movie.ogg" type="video/ogg">
+         Your browser does not support the video tag.
+         </video> 
+         </div>
+         <div class = "col-sm-6">
+         <div class="caption">
+         <h2>Thumbnail label</h2>
+         <p>...</p>
+         <button type="button" class="btn btn-danger">Button</button>
+         </div>
+         </div>
+         </div>
+         </div>
+         */
+        var i = num;
+        var podcastImageContainer = document.createElement("div");
+        var col1 = document.createElement("div");
+        var col2 = document.createElement("div");
+        var videoActive = document.createElement("video");
+        var sourceTag = document.createElement("source");
+        var caption = document.createElement("div");
+        var deleteBtn = document.createElement("button");
+        var title = document.createElement("h2");
+        var description = document.createElement("p");
+        var brTag = document.createElement("br");
+
+
+
+        //set up the cols
+        col1.setAttribute("class", "row");
+        col2.setAttribute("class", "row");
+
+        //set up the title
+        title.textContent = podTitle;
+
+        //set up the description
+        description.textContent = podDescription;
+
+        //Set up for the div podcastImageContainer
+        podcastImageContainer.setAttribute("class", "thumbnail row");
+        podcastImageContainer.setAttribute("id", "pod");
+
+        //set up for the video tag
+        videoActive.setAttribute("controls","");
+        videoActive.setAttribute("preload","auto");
+        videoActive.setAttribute("poster","dango.png");
+
+        //Set up for the sourcetag
+        sourceTag.setAttribute("src", "angel.mp4");
+        sourceTag.setAttribute("type", "video/mp4");
+        sourceTag.setAttribute("src", "angel.ogg");
+        sourceTag.setAttribute("type", "video/ogg");
+
+        //Set up for the div caption
+        caption.setAttribute("class", "caption");
+        caption.appendChild(title);
+        caption.appendChild(description);
+
+        //Set up for the button tag
+        deleteBtn.setAttribute("type", "button");
+        // Indicates a dangerous or potentially negative action 
+        deleteBtn.setAttribute("class", "btn btn-danger");
+        deleteBtn.textContent = "delete ";
+
+        elementPodcast.appendChild(podcastImageContainer);
+        podcastImageContainer.appendChild(col1);
+        podcastImageContainer.appendChild(col2);
+
+        col1.appendChild(videoActive);
+        videoActive.appendChild(sourceTag);
+        col2.appendChild(caption);
+        elementPodcast.appendChild(deleteBtn);
+
+        arrayPodcast.push(podcastImageContainer);
+
+        elementPodcast.appendChild(brTag);
+
+        deleteBtn.addEventListener("click", function () {
+            elementPodcast.removeChild(podcastImageContainer);
+            elementPodcast.removeChild(deleteBtn);
+            elementPodcast.removeChild(brTag);
+            console.log("podcast " + i + " removed");
+        });
     }
     function addAudioPodcast(podcastSource, num, podTitle, podDescription) {
         /*
@@ -140,11 +232,11 @@ window.addEventListener("load", function () {
         var brTag = document.createElement("br");
 
         //set up the title
-        title.textContent = podTitle; 
-        
+        title.textContent = podTitle;
+
         //set up the description
         description.textContent = podDescription;
-        
+
         //set up the div tag
         podcastListenContainer.setAttribute("id", "pod");
         podcastListenContainer.appendChild(title);
@@ -156,7 +248,9 @@ window.addEventListener("load", function () {
         //set up for the source tag 
         sourceTag.setAttribute("src", "audio.mp3");
         sourceTag.setAttribute("type", "audio/mpeg");
-
+        //sourceTag.setAttribute("src", "audio.ogg");
+        //sourceTag.setAttribute("type", "audio/ogg");
+        
         //set up the button tag, used to delete the current podcast
         deleteBtn.setAttribute("type", "button");
         // Indicates a dangerous or potentially negative action 
@@ -166,7 +260,7 @@ window.addEventListener("load", function () {
         elementPodcast.appendChild(podcastListenContainer);
         podcastListenContainer.appendChild(audioActive);
         audioActive.appendChild(sourceTag);
-        
+
         podcastListenContainer.appendChild(description);
         elementPodcast.appendChild(deleteBtn);
 
@@ -189,6 +283,7 @@ window.addEventListener("load", function () {
 
 
     }
+
 
     function openFeed(url) {
         /*
