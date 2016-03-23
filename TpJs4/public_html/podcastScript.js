@@ -25,6 +25,8 @@ window.addEventListener("load", function () {
          * this function choose, beetween all podcast function, witch ones
          * is should take .
          */
+
+        openFeed("http://radiofrance-podcast.net/podcast09/rss_15449.xml");
         podNum += 1;
         addAudioPodcast(elementPodcast, podNum, "title", "description", "type", "url");
         addVideoPodcast(elementPodcast, podNum+1, "title", "description", "type", "url");
@@ -51,8 +53,6 @@ window.addEventListener("load", function () {
         xhr = new XMLHttpRequest();
         xhr.open("GET", "http://crossorigin.me/" + url, true);// http://crossorigin.me/ is a proxy used before the url to allow the web site to get the RSS file
         xhr.onload = function () {
-            console.log("Received: " + xhr.responseXML.querySelectorAll("item enclosure")[0].getAttribute("url"));
-
             parseFeed(xhr.responseXML); 
         };
         xhr.onerror = function () {
@@ -62,12 +62,21 @@ window.addEventListener("load", function () {
     }
     
     function parseFeed(feed) {
-        var podcastArray = new Array();
-
+        var items = feed.querySelectorAll("item");
+        var itemArray = new Array();
+        for (var i = 0 ; i < items.length ; i++) {
+            var enclosure = items[i].querySelectorAll("enclosure")[0];
+            var currentItem = {
+                title : items[i].getElementsByTagName("title")[0].innerHTML,
+                description : items[i].getElementsByTagName("description")[0].innerHTML,
+                type : enclosure.getAttribute("type"),
+                url : enclosure.getAttribute("url"),
+            };
+            itemArray.push(currentItem);
+        }
     }
     
 
-    openFeed("http://radiofrance-podcast.net/podcast09/rss_15449.xml");
     
 
 });
