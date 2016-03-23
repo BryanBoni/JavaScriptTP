@@ -13,7 +13,7 @@ window.addEventListener("load", function () {
 
     function initFunction() {
         /*
-         this function is used to initialise the podcast gestion
+         this function is used to initialise the podcast management
          */
         
         elementPodcastButton.addEventListener("click", choosePodcast);
@@ -45,18 +45,36 @@ window.addEventListener("load", function () {
         /*
          * this function is used to retrive an RSS file
          * from an URL given in parameter
+         * 
+         * Returns an object of the followning form:
+         * 
+         *     title : "",
+         *     description : "", 
+         *     type : "",
+         *     url : "",
+         * 
+         *
          */
 
         xhr = new XMLHttpRequest();
         xhr.open("GET", "http://crossorigin.me/" + url, true);// http://crossorigin.me/ is a proxy used before the url to allow the web site to get the RSS file
         xhr.onload = function () {
             console.log("Received: " + xhr.responseXML.querySelectorAll("item enclosure")[0].getAttribute("url"));
+
+            parseFeed(xhr.responseXML); 
         };
         xhr.onerror = function () {
             alert("Error: request failed :(");
         };
         xhr.send();//execute the request
     }
+    
+    function parseFeed(feed) {
+        var podcastArray = new Array();
+
+    }
+    
+
     openFeed("http://radiofrance-podcast.net/podcast09/rss_15449.xml");
 
 });
