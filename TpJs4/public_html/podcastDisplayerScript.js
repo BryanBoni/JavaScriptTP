@@ -1,4 +1,4 @@
-window.addEventListener("load", function () {
+//window.addEventListener("load", function () {
     //the Main fucntion
     /*
     this function will be used to split the code and containing 
@@ -6,7 +6,27 @@ window.addEventListener("load", function () {
     */
     console.log("ffffffff");
     
-    function addImagePodcast(num, podTitle, podDescription) {
+    var arrayPodcast = new Array();
+    
+    function podListScan(podList, num){
+        var i;
+        var elementPodcast = document.getElementById("podcastContainer");
+        for(i = 0; i< podList.lenght; i++){
+            switch(podList[i].type){
+                case "audio":
+                    addAudioPodcast(elementPodcast, num, podList[i].title, podList[i].description, podList[i].type, podList[i].url);
+                    break;
+                case "video":
+                    addVideoPodcast(elementPodcast, num, podList[i].title, podList[i].description, podList[i].type, podList[i].url);
+                    break;
+                case "image":
+                    addImagePodcast(elementPodcast, num, podList[i].title, podList[i].description, podList[i].type, podList[i].url);
+                    break;
+            }
+        }
+    }
+    
+    function addImagePodcast(elementPodcast,num, podTitle, podDescription, podType, podUrl) {
         /*
          This function treat an display an Image podcast,
          retrive from an RSS flux.
@@ -91,7 +111,7 @@ window.addEventListener("load", function () {
         });
     }
 
-    function addVideoPodcast(num, podTitle, podDescription) {
+    function addVideoPodcast(elementPodcast,num, podTitle, podDescription, podType, podUrl) {
         /*
          This function treat an display a Video podcast,
          retrive from an RSS flux.
@@ -187,7 +207,7 @@ window.addEventListener("load", function () {
             console.log("podcast " + i + " removed");
         });
     }
-    function addAudioPodcast(podcastSource, num, podTitle, podDescription) {
+    function addAudioPodcast(elementPodcast, num, podTitle, podDescription, podType, podUrl) {
         /*
          This function treat an display an audio podcast,
          retrive from an RSS flux.
@@ -262,6 +282,4 @@ window.addEventListener("load", function () {
 
 
     }
-
-    
-});
+//});

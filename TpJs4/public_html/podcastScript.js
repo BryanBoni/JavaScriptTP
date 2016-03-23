@@ -15,7 +15,6 @@ window.addEventListener("load", function () {
         /*
          this function is used to initialise the podcast management
          */
-        
         elementPodcastButton.addEventListener("click", choosePodcast);
         
     }
@@ -27,17 +26,10 @@ window.addEventListener("load", function () {
          * is should take .
          */
         podNum += 1;
-        $.getScript("podcastDisplayerScript.js", function (data, textStatus, jqxhr) {
-            console.log(data); // Data returned
-            console.log(textStatus); // Success
-            console.log(jqxhr.status); // 200
-            console.log("Load was performed.");
-            data.
-            addAudioPodcast("lol", podNum, "title", "description");
-            addImagePodcast(podNum + 1, "Dango Family", "Dango... dango... dango...");
-            addVideoPodcast(podNum + 2, "Angel Beat", "Great feffffffffffffffffffffffffffffffffffff ffffffffffffffffffffffffffffffffzzfezrgRGEGQERGERQU9GSITUBHBYRTGNIUQERYHBGEIU9GVBUISERGJQERQSRUEIGHNETUGZERIOubgfrigbergbisersgreibgquguerdghbeurbgdrgdubhrghdrhbdurgnuhdqnrisrhgbdrhgbdigbgdrbg");
-
-        });
+        addAudioPodcast(elementPodcast, podNum, "title", "description", "type", "url");
+        addVideoPodcast(elementPodcast, podNum+1, "title", "description", "type", "url");
+        addImagePodcast(elementPodcast, podNum+2, "title", "description", "type", "url");
+        
     }
 
 
@@ -76,5 +68,6 @@ window.addEventListener("load", function () {
     
 
     openFeed("http://radiofrance-podcast.net/podcast09/rss_15449.xml");
+    
 
 });
