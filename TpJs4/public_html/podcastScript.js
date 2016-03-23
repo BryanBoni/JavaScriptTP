@@ -24,12 +24,14 @@ window.addEventListener("load", function () {
          * this function choose, beetween all podcast function, witch ones
          * is should take .
          */
-
-        openFeed("http://radiofrance-podcast.net/podcast09/rss_15449.xml");
+        //"http://radiofrance-podcast.net/podcast09/rss_15449.xml"
+        console.log(document.getElementById("textInput").value);
         podNum += 1;
-        addAudioPodcast(elementPodcast, podNum, "title", "description", "audio/mp3", "audio.mp3");
+        openFeed(document.getElementById("textInput").value);
+        
+        /*addAudioPodcast(elementPodcast, podNum, "title", "description", "audio/mp3", "audio.mp3");
         addVideoPodcast(elementPodcast, podNum+1, "title", "description", "video/ogg", "angel.ogg");
-        addImagePodcast(elementPodcast, podNum+2, "title", "description", "type", "dango.png");
+        addImagePodcast(elementPodcast, podNum+2, "title", "description", "type", "dango.png");*/
         
     }
 
@@ -69,10 +71,11 @@ window.addEventListener("load", function () {
                 title : items[i].getElementsByTagName("title")[0].innerHTML,
                 description : items[i].getElementsByTagName("description")[0].innerHTML,
                 type : enclosure.getAttribute("type"),
-                url : enclosure.getAttribute("url"),
+                url : enclosure.getAttribute("url")
             };
             itemArray.push(currentItem);
         }
+        podListScan(itemArray, podNum);
     }
     
 
