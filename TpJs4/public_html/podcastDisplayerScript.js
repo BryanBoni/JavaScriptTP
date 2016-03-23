@@ -77,7 +77,7 @@
         podcastImageContainer.setAttribute("id", "pod");
 
         //Set up for the img tag
-        imageActive.setAttribute("src", "dango.png");
+        imageActive.setAttribute("src", podUrl);
         imageActive.setAttribute("alt", "TITLE");
 
         //Set up for the div caption
@@ -171,10 +171,11 @@
         videoActive.setAttribute("poster","dango.png");
 
         //Set up for the sourcetag
-        sourceTag.setAttribute("src", "angel.mp4");
-        sourceTag.setAttribute("type", "video/mp4");
+        sourceTag.setAttribute("src", podUrl);
+        sourceTag.setAttribute("type", podType);
+        /*
         sourceTag.setAttribute("src", "angel.ogg");
-        sourceTag.setAttribute("type", "video/ogg");
+        sourceTag.setAttribute("type", "video/ogg");*/
 
         //Set up for the div caption
         caption.setAttribute("class", "caption");
@@ -245,8 +246,8 @@
         audioActive.setAttribute("controls", "");
 
         //set up for the source tag 
-        sourceTag.setAttribute("src", "audio.mp3");
-        sourceTag.setAttribute("type", "audio/mpeg");
+        sourceTag.setAttribute("src", podUrl);
+        sourceTag.setAttribute("type", podType);
         //sourceTag.setAttribute("src", "audio.ogg");
         //sourceTag.setAttribute("type", "audio/ogg");
         

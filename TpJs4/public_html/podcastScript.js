@@ -2,7 +2,6 @@ window.addEventListener("load", function () {
     //the Main fucntion
     podNum = 0;
     var elementPodcast = document.getElementById("podcastContainer");
-    var arrayPodcast = new Array();
 
     var elementPodcastButton = document.getElementById("okBtn"); // creating button tag
 
@@ -26,9 +25,9 @@ window.addEventListener("load", function () {
          * is should take .
          */
         podNum += 1;
-        addAudioPodcast(elementPodcast, podNum, "title", "description", "type", "url");
-        addVideoPodcast(elementPodcast, podNum+1, "title", "description", "type", "url");
-        addImagePodcast(elementPodcast, podNum+2, "title", "description", "type", "url");
+        addAudioPodcast(elementPodcast, podNum, "title", "description", "audio/mp3", "audio.mp3");
+        addVideoPodcast(elementPodcast, podNum+1, "title", "description", "video/ogg", "angel.ogg");
+        addImagePodcast(elementPodcast, podNum+2, "title", "description", "type", "dango.png");
         
     }
 
