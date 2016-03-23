@@ -8,13 +8,16 @@ window.addEventListener("load", function () {
 
 
     initFunction();
+    
+        
 
     function initFunction() {
         /*
          this function is used to initialise the podcast gestion
          */
-
+        
         elementPodcastButton.addEventListener("click", choosePodcast);
+        
     }
 
 
@@ -24,8 +27,12 @@ window.addEventListener("load", function () {
          * is should take .
          */
         podNum += 1;
-        $.getScript("podcastDisplayerScript", function () {
-            
+        $.getScript("podcastDisplayerScript.js", function (data, textStatus, jqxhr) {
+            console.log(data); // Data returned
+            console.log(textStatus); // Success
+            console.log(jqxhr.status); // 200
+            console.log("Load was performed.");
+            data.
             addAudioPodcast("lol", podNum, "title", "description");
             addImagePodcast(podNum + 1, "Dango Family", "Dango... dango... dango...");
             addVideoPodcast(podNum + 2, "Angel Beat", "Great feffffffffffffffffffffffffffffffffffff ffffffffffffffffffffffffffffffffzzfezrgRGEGQERGERQU9GSITUBHBYRTGNIUQERYHBGEIU9GVBUISERGJQERQSRUEIGHNETUGZERIOubgfrigbergbisersgreibgquguerdghbeurbgdrgdubhrghdrhbdurgnuhdqnrisrhgbdrhgbdigbgdrbg");
